@@ -59,7 +59,7 @@ CureX is a complete health management system built using **ASP.NET Core Web API*
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/curex.git
+git clone https://github.com/yahiasherif002/curex.git
 cd curex
 ```
 
@@ -90,32 +90,39 @@ API will run on `https://localhost:7070` (or similar based on launch settings).
 ---
 
 ## 🌐 API Endpoints
+### 🔹 Auth
+| Method | Endpoint                   | Description                     |
+|--------|----------------------------|---------------------------------|
+| POST   | `/api/auth/login`          | Authanticate a user             |
 
 ### 🔹 Patients
 
-| Method | Endpoint                | Description                     |
-|--------|-------------------------|---------------------------------|
-| GET    | `/api/patients`         | Get all patients                |
-| POST   | `/api/patients`         | Add a new patient               |
-| DELETE | `/api/patients/{id}`    | Delete a patient by ID          |
+| Method | Endpoint                   | Description                     |
+|--------|----------------------------|---------------------------------|
+| GET    | `/api/patients`            | Get all patients                |
+| POST   | `/api/patients`            | Add a new patient               |
+| GET    | `/api/patients/{contact}`  | Get  patient by number          |
+| put    | `/api/patients/{contact}`  | update  patient by number       |
+| DELETE | `/api/patients/{contact}`  | Delete a patient by contact     |
 
 ### 🔹 Appointments
 
-| Method | Endpoint                | Description                          |
-|--------|-------------------------|--------------------------------------|
-| GET    | `/api/appointments`     | Get all appointments                 |
-| POST   | `/api/appointments`     | Create an appointment                |
-| DELETE | `/api/appointments/{id}`| Delete an appointment by ID          |
+| Method | Endpoint                              | Description                          |
+|--------|---------------------------------------|--------------------------------------|
+| GET    | `/api/appointments`                   | Get all appointments                 |
+| POST   | `/api/appointments`                   | Create an appointment                |
+| Put    | `/api/appointments/update-status`     | Update appointment stauts            |
+| DELETE | `/api/appointments/{id}`              | Delete an appointment by ID          |
 
 ### 🔹 Billing & Invoices
 
-| Method | Endpoint                             | Description                              |
-|--------|--------------------------------------|------------------------------------------|
-| POST   | `/api/billing/generate`              | Generate bill and invoice                |
-| GET    | `/api/billing/invoice/{billId}`      | Download PDF invoice by bill ID          |
-| GET    | `/api/billing/patient/{contact}`     | Get all bills by patient contact number  |
-| GET    | `/api/billing/report/monthly`        | Get billing report by month/year         |
-| GET    | `/api/billing/analytics`             | Status-based analytics                   |
+| Method | Endpoint                                      | Description                              |
+|--------|-----------------------------------------------|------------------------------------------|
+| POST   | `/api/bill/generate`                          | Generate bill and invoice                |
+| GET    | `/api/bill/pdf/{billId}`                      | Download PDF invoice by bill ID          |
+| GET    | `/api/bill/patient/{contact}`                 | Get all bills by patient contact number  |
+| GET    | `/api/bill/report/monthly`                    | Get billing report by month/year         |
+| GET    | `/api/bill/analytics/{from}/{to}`             | Status-based analytics                   |
 
 ---
 
@@ -123,7 +130,7 @@ API will run on `https://localhost:7070` (or similar based on launch settings).
 
 - PDF invoices are generated via QuestPDF and stored in `wwwroot/invo/`.
 - Filenames follow: `Invoice_{BillId}_{Ticks}.pdf`.
-- Files can be downloaded via `/api/billing/invoice/{billId}`.
+- Files can be downloaded via `/api/bill/pdf/{billId}`.
 
 ---
 
@@ -192,5 +199,5 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**Yahia** – [GitHub Profile](https://github.com/your-username)  
+**Yahia** – [GitHub Profile](https://github.com/Yahiasherif002)  
 A backend developer passionate about clean architecture and efficient systems.
